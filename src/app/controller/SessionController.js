@@ -21,7 +21,7 @@ class SessionController {
     const userDb = await User.findOne({ where: { email } });
 
     if (!userDb) {
-      req.status(401).send({ err: 'user not found' });
+      res.status(401).send({ err: 'user not found' });
     }
 
     if (!(await userDb.checkPassword(password))) {

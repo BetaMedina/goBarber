@@ -27,6 +27,10 @@ class User extends Model {
     return bcrypt.compare(password, this.password_hash);
   }
 
+  checkIsProvider() {
+    return this.provider;
+  }
+
   static associate(models) {
     this.belongsTo(models.File, { foreignKey: 'avatar_id', as: 'avatar' });
   }
